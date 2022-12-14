@@ -28,6 +28,7 @@ try:
             else:
                 print("ValueError")
     else:   
+        print("Kahju! See on väga kasulik info!\n")
         exit
 except:
     print("ValueError")
