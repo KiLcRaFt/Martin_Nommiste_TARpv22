@@ -148,3 +148,81 @@
 #                 print(f"Kokku hind on {hindkokku} eur")
 #except:
 #    print(TypeError)
+
+#9
+
+
+#try:
+#    a=float(input("Utle pool a "))
+#    b=float(input("Utle pool b "))
+#    if a==b:
+#        print("See on ruut")
+#    else:
+#        print("See ei ole ruut")
+#except:
+#    print("Value Error")
+
+#10
+
+
+#try:
+#    a=float(input("1 number "))
+#    b=float(input("1 number "))
+#    c=input("mis märk sa oled +-/ \n ")
+#    if c==("+"):
+#        print(a+b)
+#    elif c==("-"):
+#        print(a-b)
+#    elif c==(""):
+#        print(a*b)
+#    elif c==("/"):
+#        if b==0:
+#            print("Väiksem kui 0")
+#        else:
+#            print(a/b)
+#except:
+#    print("Value Error")
+
+
+#11
+
+
+#now = datetime.datetime.now()
+#try:
+#    a=int(input("Sisesta sünniaasta. "))
+#except:
+#    print("Value Error")
+#b=int(now.year)
+#c=int(b-a)
+#print(c)
+#f=c%5
+#if f==0:
+#    print("teil on juubel")
+#else:
+#    print("Kui kaju")
+
+#12
+
+
+#try:
+#    a=float(input("sisesta toote hind "))
+#    if a<=10:
+#        print("sul on soodus 10%",a-a0.1)
+#    elif a>10:
+#        print("sul on soodus 20%",a-a0.2)
+#except:
+#    print("Value Error")
+
+#13
+
+
+#try:
+#    a=int(input("Kas sa oled mees?(jah-1 või ei-0)"))
+#    if a==1:
+#        b=int(input("Kui vana sa oled? "))
+#        if b>=16 and b<=18:
+#            print("sa sobid")
+#    else:
+#        print("sa oled naine sest, et sa ei sobi")
+#except:
+#    print("Value Error")
