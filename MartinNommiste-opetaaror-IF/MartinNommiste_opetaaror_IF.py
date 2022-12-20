@@ -1,4 +1,4 @@
-﻿
+﻿from random import Random, randint
 
 #1
 
@@ -85,16 +85,66 @@
 
 #7
 
-try:
-    kasv=int(input("Какой у тебя рост? \n"))
-    if kasv>0:
-        if kasv<150:
-            print("У тебя низкий рост")
-        elif kasv>=150 and kasv<180:
-            print("У тебя средний рост")
-        elif kasv>=180:
-            print("У тебя высокий рост")
-    else:
-        print("Неверно")
-except:
-    print(TypeError)
+#try:
+#    kasv=int(input("Какой у тебя рост? \n"))
+#    if kasv>0:
+#        if kasv<150:
+#            print("У тебя низкий рост")
+#        elif kasv>=150 and kasv<180:
+#            print("У тебя средний рост")
+#        elif kasv>=180:
+#            print("У тебя высокий рост")
+#    else:
+#        print("Неверно")
+#except:
+#    print(TypeError)
+
+#8
+
+#try:
+#    piim=str(input("Kas te soovite piim? y/n \n"))
+#    if piim=="y":
+#        piimhind=randint(1, 5)
+#        sai=str(input("Kas te soovite sai? y/n \n"))
+#        if sai=="y":
+#            saihind=randint(1, 5)
+#            leib=str(input("Kas te soovite leib y/n \n"))
+#            if leib=="y":
+#                 leibhind=randint(1, 5)
+#                 hindkokku=piimhind+saihind+leibhind
+#                 print(f"Kokku hind on {hindkokku} eur")
+#            elif leib=="n":
+#                 hindkokku=piimhind+saihind
+#                 print(f"Kokku hind on {hindkokku} eur")
+#        elif sai=="n":
+#            leib=str(input("Kas te soovite leib y/n \n"))
+#            if leib=="y":
+#                 leibhind=randint(1, 5)
+#                 hindkokku=piimhind+leibhind
+#                 print(f"Kokku hind on {hindkokku} eur")
+#            elif leib=="n":
+#                 hindkokku=piimhind
+#                 print(f"Kokku hind on {hindkokku} eur")
+#    elif piim=="n":
+#        sai=str(input("Kas te soovite sai? y/n \n"))
+#        if sai=="y":
+#            saihind=randint(1, 5)
+#            leib=str(input("Kas te soovite leib y/n \n"))
+#            if leib=="y":
+#                 leibhind=randint(1, 5)
+#                 hindkokku=saihind+leibhind
+#                 print(f"Kokku hind on {hindkokku} eur")
+#            elif leib=="n":
+#                 hindkokku=saihind
+#                 print(f"Kokku hind on {hindkokku} eur")
+#        elif sai=="n":
+#            leib=str(input("Kas te soovite leib y/n \n"))
+#            if leib=="y":
+#                 leibhind=randint(1, 5)
+#                 hindkokku=leibhind
+#                 print(f"Kokku hind on {hindkokku} eur")
+#            elif leib=="n":
+#                 hindkokku=0
+#                 print(f"Kokku hind on {hindkokku} eur")
+#except:
+#    print(TypeError)
