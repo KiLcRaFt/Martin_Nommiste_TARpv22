@@ -83,6 +83,32 @@
 #except:
 #    print(TypeError)
 
+#try:
+#    n=int(input("Mis toa korteris? "))
+#    for i in range(1, n+1):
+    
+#        t=float(input(f"{i} Temperatuur: "))
+#        if t>=18:
+#            print("Soe")
+#        else:
+#            print("Külm")
+
+#except:
+#    print(TypeError)
+
+#try:
+#    n=int(input("Mis toa korteris? "))
+#    for i in range(1, n+1):
+    
+#        t=float(input(f"{i} Temperatuur: "))
+#        if t>=18:
+#            print("Soe")
+#        else:
+#            print("Külm")
+
+#except:
+#    print(TypeError)
+
 #7
 
 #try:
@@ -98,6 +124,42 @@
 #        print("Неверно")
 #except:
 #    print(TypeError)
+
+#p=k=l=0
+#kogus=randint(1, 20)
+#print("Всего человек", kogus)
+#for i in range(1, kogus+1):
+#    pikkus=randint(56, 256)
+#    if pikkus>0:
+#        if pikkus<150:
+#            print("У тебя низкий рост")
+#            l+=1       
+#        elif pikkus>=150 and pikkus<180:
+#            print("У тебя средний рост")
+#            k+=1
+#        elif pikkus>=180:
+#            p+=1
+#            print("У тебя высокий рост")
+#print(f"Высоких: {p}\nСредних: {k}\nНизких: {l}")
+
+#p=k=l=0
+#kogus=randint(1, 20)
+#print("Всего человек", kogus)
+#i=0
+#while i<=kogus-1:
+#    i+=1
+#    pikkus=randint(56, 256)
+#    if pikkus>0:
+#        if pikkus<150:
+#            print("У тебя низкий рост")
+#            l+=1       
+#        elif pikkus>=150 and pikkus<180:
+#            print("У тебя средний рост")
+#            k+=1
+#        elif pikkus>=180:
+#            p+=1
+#            print("У тебя высокий рост")
+#print(f"Высоких: {p}\nСредних: {k}\nНизких: {l}")
 
 #8
 
@@ -160,7 +222,26 @@
 #    else:
 #        print("See ei ole ruut")
 #except:
-#    print("Value Error")
+#    print(TypeError)
+
+a=0
+b=1
+while a!=b:
+    while True:
+        try:
+            a=float(input("Сторона а:  "))
+            break
+        except:
+            print("Попробуйте ещё раз")
+    while True:
+        try:
+            b=float(input("Сторона б: "))
+            break
+        except:
+            print("Попробуйте ещё раз")
+    if a!=b:
+        print("Попробуйте ещё раз")
+print(f"Это квадрат, его стороны равны {a}")
 
 #10
 
@@ -181,7 +262,7 @@
 #        else:
 #            print(a/b)
 #except:
-#    print("Value Error")
+#    print(TypeError)
 
 
 #11
@@ -191,7 +272,7 @@
 #try:
 #    a=int(input("Sisesta sünniaasta. "))
 #except:
-#    print("Value Error")
+#    print(TypeError)
 #b=int(now.year)
 #c=int(b-a)
 #print(c)
@@ -211,7 +292,7 @@
 #    elif a>10:
 #        print("sul on soodus 20%",a-a0.2)
 #except:
-#    print("Value Error")
+#    print(TypeError)
 
 #13
 
@@ -225,4 +306,4 @@
 #    else:
 #        print("sa oled naine sest, et sa ei sobi")
 #except:
-#    print("Value Error")
+#    print(TypeError)
