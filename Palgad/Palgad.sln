@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Palgad", "Palgad\Palgad.pyproj", "{E4D461E5-A5C1-477E-9205-F7A82CCDD814}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "OmaMoodul", "OmaMoodul\OmaMoodul.pyproj", "{3CFFE8B8-E4F6-4E3F-9AFA-4172C455A9E5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E4D461E5-A5C1-477E-9205-F7A82CCDD814}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4D461E5-A5C1-477E-9205-F7A82CCDD814}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CFFE8B8-E4F6-4E3F-9AFA-4172C455A9E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CFFE8B8-E4F6-4E3F-9AFA-4172C455A9E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {593EFB7A-1CEF-4DCD-A0EF-79B8927C42FF}
+	EndGlobalSection
+EndGlobal
