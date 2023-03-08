@@ -5,7 +5,7 @@ riik_pealinn = {}
 pealinn_riik ={}
 
 while True:
-    menu=int(input("Показать словарь - 1\nНайти страну/столицу - 2\nДобавить в словарь - 3\nИсправить в словаре - 4\n Игра - 5\nЗакрыть - 0\n"))
+    menu=int(input("Näita sõnastikku - 1\nOtsige riik/pealinn - 2\nLisa sõnastikku - 3\nÕige sõnaraamatus - 4\n Mäng - 5\nSulge - 0\n"))
     x = 0
     if x < 1:
         file("RiikPealinn.txt", sonastik, riik_pealinn, pealinn_riik)
