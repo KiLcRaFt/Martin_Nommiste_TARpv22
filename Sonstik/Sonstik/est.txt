@@ -44,7 +44,6 @@ tingimus
 ovaal
 algus
 lõpp
-nool
 suund
 käsk
 programmeerimiskeel
@@ -67,3 +66,5 @@ taane
 avaldus
 vihjerogalik
 haru
+abc
+parandataksenool
