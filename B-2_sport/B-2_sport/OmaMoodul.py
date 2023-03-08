@@ -35,7 +35,6 @@ def Suurim_tulemus(s:list,t:list):
 def näita_tulemused(s:list,t:list):
     tulemus=[]
     nimi=input("Kelle tulemuse tahad leia? \n")
-    n=s.count(nimi)
     ind=s.index(nimi)
     print(f'{nimi} saab {t[ind]} \n')
     return tulemus
