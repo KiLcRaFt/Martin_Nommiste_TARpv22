@@ -1,19 +1,17 @@
-﻿from datetime import *
-#8/02/23
-def Lisa_andmed(i:list, p:list):
-    """
-    Küsib inimese list ja palgad list
-    :param list i:inimeste järjend
-    :param list p: palgade järjend
-    :rtype list, list:
+﻿from random import *
+def Lisa_andmed(i:list,p:list):
+    """Kirjekdus
+    :param list i: Inimeste j�rjend
+    :param list p: Palgade j�rjend
+    :rtype: list, list
     """
     n=int(input("Mitu inimest: "))
     for j in range(n):
-        nimi=input("Sisesta nimi: ")
-        palk= int(input("Sisesta palk: "))
+        nimi = input("Sisesta nimi:")
+        palk = int(input("Sisesta palk: "))
         i.append(nimi)
         p.append(palk)
-    return i, p
+    return i,p
 
 def Kustutamine(i:list, p:list):
     """
@@ -31,65 +29,64 @@ def Kustutamine(i:list, p:list):
             p.pop(ind)
     return i, p
 
-def suurim_palg(i:list, p:list):
+def suurim_palk(i:list, p:list):
     """
-    Küsib suurim palg
+    Küsib inimese list ja palgad list
     :param list i:inimeste järjend
     :param list p: palgade järjend
-    :rtype list, list:s
+    :rtype int, str
     """
-    # ise kirjutada, kui mitu palgad
-    palk=max(p)
-    ind=p.index(palk)
-    nimi=i[ind]
+    palk = max(p)
+    ind = p.index(palk)
+    nimi = i[ind]
+
     return palk, nimi
 
-def väiksem_palg(i:list, p:list):
+def v_palk(i:list, p:list):
+    """Kirljedus...
+    :param list i: inimene 
+    :parak list p: v_palk
+    .rtype int, str
     """
-    Küsib suurim palg
-    :param list i:inimeste järjend
-    :param list p: palgade järjend
-    :rtype list, list:s
-    """
-    # ise kirjutada, kui mitu palgad
-    palk=min(p)
-    ind=p.index(palk)
-    nimi=i[ind]
+
+    palk = min(p)
+    ind = p.index(palk)
+    nimi = i[ind]
+
+
     return palk, nimi
 
-def Sorteerimine(i:list, p:list):
+def sorterimine(i:list, p:list):
+    """Kirljedus...
+    :param list i: Inimesed
+    :param list p: sortirovka
+    :rtype int, str
     """
-    Küsib suurim palg
-    :param list i:inimeste järjend
-    :param list p: palgade järjend
-    :rtype list, list:s
-    """
-    # ise kirjutada, kui mitu palgad
-    v=int(input("1-kahaneb, 2-kasvab"))
+    v = int(input("1-kahaneb,2-kasvab\n"))
     if v == 1:
-        n=len(p)
-        for j in range(0, n-1):
-             for k in range(j+1, n):
-                 if p[j]<p[k]:
-                     abi=p[j]
-                     p[j]=p[k]
-                     p[k]=abi
-                     abi=i[j]
-                     i[j]=i[k]
-                     i[k]=abi
-    elif v == 2:
-        n=len(p)
-        for j in range(0, n-1):
-             for k in range(j+1, n):
-                 if p[j]>p[k]:
-                     abi=p[j]
-                     p[j]=p[k]
-                     p[k]=abi
-                     abi=i[j]
-                     i[j]=i[k]
-                     i[k]=abi
-
-    return i, p
+        n = len(p)
+        for j in range(0,n-1):
+            for k in range(j+1,n):
+                if p[j]>p[k]:
+                    abi =p[j]
+                    p[j]=p[k]
+                    p[k]=abi
+                    abi =i[j]
+                    i[j]=i[k]
+                    i[k]=abi
+    else:
+        if v == 2:
+            n = len(p)
+            for j in range(0,n-1):
+                for k in range(j+1,n):
+                    if p[j]<p[k]:
+                        abi =p[j]
+                        p[j]=p[k]
+                        p[k]=abi
+                        abi =i[j]
+                        i[j]=i[k]
+                        i[k]=abi
+    return i,p
 
 def Vordsed_palgad(i:list, p:list):
     """
@@ -109,3 +106,26 @@ def Vordsed_palgad(i:list, p:list):
             nimi=i[k]
             print(nimi, "saab kätte", palk)
 
+
+def Keskmine(i:list, p:list):
+    list = p
+    avg = sum(p) / len(p)
+    print("Keskmine palk on ", round(avg,2))
+    if avg == avg:
+            ind = p.index(avg)
+            nimi = i[ind]
+            print(nimi)
+            ind = p.index(avg,1)
+            nimi = i[ind]
+            print(nimi)
+    return i,p
+
+def top(p:list):
+    g = randint(0,2500)
+    f = input("1,2\n")
+    if f == "1":
+        return p > g
+    elif f == "2":
+        return p < g
+
+    return p
