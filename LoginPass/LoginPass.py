@@ -1,149 +1,100 @@
 ﻿from tkinter import *  
-
+from webbrowser import *
+from time import sleep
 
 users = {"username":"password"}  
-win=Tk()
-win.geometry("600x600")
+
+def startwin():
+    global win
+    win=Tk()
+    win.geometry("350x270")
+    win.title("Login or Registreerimine")
+    lbl=Label(win,text="Welcome", bg="lightblue",fg="black",font="Arial 50", width=15)
+    btn1=Button(win, text="Login", font="Arial 22", bg="pink", fg="black", relief=RAISED, width=15, borderwidth=5, command=login)
+    btn2=Button(win, text="Registreerimine", font="Arial 22", bg="green", fg="black", relief=RAISED, width=15, borderwidth=5, command=reg)
+    btn3=Button(win, text="Exit", font="Arial 22", bg="red", fg="black", relief=RAISED, width=15, borderwidth=5, command=exit)
+
+    lbl.pack()
+    btn1.pack(fill=BOTH, side=TOP)
+    btn2.pack(fill=BOTH, side=TOP)
+    btn3.pack(fill=BOTH, side=TOP)
 
 def reg():
+    global regwin
+    global regname
+    global regpass
+    global regpass2
+    global reglabel
     regwin=Tk()
     regwin.title("Registreerimine")
-    regwin.geometry("600x600")
-    reglabel = Label(regwin,text="Username : ", fg="red", font="Arial 24")
-    regname = Entry(regwin,width=32)
+    regwin.geometry("600x250")
+    uname = Label(regwin ,text="Username : ", fg="red", font="Arial 24")
+    regname = Entry(regwin ,width=32)
+    pas = Label(regwin ,text="Password : ", fg="lightblue", font="Arial 24")
+    regpass = Entry(regwin ,width=32)
+    pas2 = Label(regwin ,text="Repeat password : ", fg="blue", font="Arial 24")
+    regpass2 = Entry(regwin ,width=32)
+    exitb = Button(regwin ,text="BACK", bg="black", fg="red", font="Arial 20", command=startwin)
+    regb = Button(regwin ,text="REGISTER", bg="black", fg="lightblue", font="Arial 20", command=regverifying)
+    reglabel = Label(regwin, fg="black", font="Arial 20")
 
-    reglabel.pack(fill=BOTH, side=LEFT)
+    uname.pack(fill=BOTH, side=TOP)
     regname.pack()
-    regwin.mainloop()
+    pas.pack(fill=BOTH, side=TOP)
+    regpass.pack()
+    pas2.pack(fill=BOTH, side=TOP)
+    regpass2.pack()
+    reglabel.pack()
+    regb.pack(side=RIGHT)
+    exitb.pack(side=LEFT)
 
-win.title("Login or Registreerimine")
-lbl=Label(win,text="Welcome", bg="grey",fg="black",font="Arial 24",height=5,width=15)
-btn1=Button(win, text="Login", font="Arial 22", fg="black", relief=RAISED, width=15, borderwidth=5, )
-btn2=Button(win, text="Registreerimine", font="Arial 22", fg="black", relief=RAISED, width=15, borderwidth=5, command=reg)
-btn3=Button(win, text="Exit", font="Arial 22", fg="black", relief=RAISED, width=15, borderwidth=5, command=exit)
-#ent=Entry(win,fg="purple", bg="lightblue", width=15, font="Arial 22", justify=CENTER)
+def regverifying():
+    if regpass.get() == regpass2.get():
+        if regname.get() in users:
+            reglabel["text"] = "Try another"
+        else:
+            users[regname.get()] = regpass2.get()
+            startwin()
+    else:
+        reglabel["text"] = "Passwords does not match" 
 
-lbl.pack()
-btn1.pack(fill=BOTH, side=TOP)
-btn2.pack(fill=BOTH, side=TOP)
-btn3.pack(fill=BOTH, side=TOP)
+def login():
+        global loglabel
+        global logname
+        global logpass
+        global logb
+        logwin=Tk()
+        logwin.title("Login")
+        logwin.geometry("600x250")
+        uname = Label(logwin ,text="Username : ", fg="red", font="Arial 24")
+        logname = Entry(logwin ,width=32)
+        pas = Label(logwin ,text="Password : ", fg="lightblue", font="Arial 24")
+        logpass = Entry(logwin ,show="*",  width=32)
+        logpass.insert(0, "password")
+        def clear_all(event):
+            logpass.delete(0,END)
+        logpass.bind("<Button-1>",clear_all)
+        exitb = Button(logwin ,text="BACK", bg="black", fg="red", font="Arial 20", command=startwin)
+        logb = Button(logwin ,text="Sign in", bg="black", fg="lightblue", font="Arial 20", command=logverifying)
+        loglabel = Label(logwin, fg="black", font="Arial 20")
 
+        uname.pack(fill=BOTH, side=TOP)
+        logname.pack()
+        pas.pack(fill=BOTH, side=TOP)
+        logpass.pack()
+        loglabel.pack()
+        logb.pack(side=RIGHT)
+        exitb.pack(side=LEFT)
+
+def logverifying():
+    loglabel.pack(fill=BOTH)
+    if logname.get() in users.keys():
+        if logpass.get() == users[logname.get()]: 
+            loglabel["text"] = "Login Successful ! "
+        else:
+            loglabel["text"] = "Invalid username or password ! "
+    else:
+        loglabel["text"] = "Invalid username or password ! "
+
+startwin()
 win.mainloop()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Beginning function
-
-#def beginning():
-#    global registerfirsterror
-#    global beginningwindow
-#    beginningwindow = Tk()
-#    beginningwindow.geometry("215x110+1000+35")
-#    chooseloginbutton = Button(beginningwindow,text="LOGIN",command=loginscript)
-#    chooseloginbutton.pack(fill=BOTH)
-#    chooseregisterbutton = Button(beginningwindow,text="REGISTER",command=registerscript)
-#    chooseregisterbutton.pack(fill=BOTH)
-#    chooseexitbutton = Button(beginningwindow,text="EXIT",command=sys.exit)
-#    chooseexitbutton.pack(fill=BOTH)
-#    registerfirsterror = Label(beginningwindow)
-#    frame = Frame()
-#    frame.pack(pady=2)
-
-## Register script
-
-#def registerscript():
-#    global regusername
-#    global regpassword
-#    global registerwindow
-#    global registerverifylabel
-#    registerwindow = Tk()
-#    registerwindow.geometry("215x150+1000+35")
-#    regusernamelabel = Label(registerwindow,text="Username : ")
-#    regusernamelabel.pack(fill=BOTH)
-#    regusername = Entry(registerwindow,width=32)
-#    regusername.pack()
-#    regpasswordlabel = Label(registerwindow,text="Password : ")
-#    regpasswordlabel.pack(fill=BOTH)
-#    regpassword = Entry(registerwindow,width=32)
-#    regpassword.pack()
-#    frame = Frame()
-#    frame.pack(pady=3)
-#    registerbutton = Button(registerwindow,text="REGISTER",command=registerverify)
-#    registerbutton.pack()
-#    frame = Frame()
-#    frame.pack(pady=2)
-#    backbutton = Button(registerwindow,text="BACK",command=beginning)
-#    backbutton.pack()
-#    registerverifylabel = Label(registerwindow)
-#    registerverifylabel.pack()
-
-## Login script
-
-#def loginscript():
-#    global username
-#    global password
-#    global loginwindow
-#    global loginverifylabel
-#    try:
-#        registerverifylabel["text"] = ""
-#        loginwindow = Tk()
-#        loginwindow.geometry("215x160+1000+35")
-#        usernamelabel = Label(loginwindow,text="Username : ")
-#        usernamelabel.pack(fill=BOTH)
-#        username = Entry(loginwindow,width=32)
-#        username.pack()
-#        passwordlabel = Label(loginwindow,text="Password : ")
-#        passwordlabel.pack(fill=BOTH)
-#        password = Entry(loginwindow,width=32)
-#        password.pack()
-#        loginbutton = Button(loginwindow,text="LOGIN",command=loginverify)
-#        loginbutton.pack()
-#        frame = Frame()
-#        frame.pack(pady=2)
-#        backbutton = Button(loginwindow,text="BACK",command=beginning)
-#        backbutton.pack()
-#        loginverifylabel = Label(loginwindow)
-    
-#    except NameError:          # if you try login before create account it will display an error message
-#        registerfirsterror.pack()
-#        registerfirsterror["text"] = "Please Create Account ! "
-
-
-#def loginverify():
-#    frame = Frame()
-#    frame.pack(pady=3)
-#    loginverifylabel.pack(fill=BOTH)
-#    if username.get() in users.keys():
-#        if password.get() == users[username.get()]:       #if username matches password
-#            loginverifylabel["text"] = "Login Successful ! "
-#        else:
-#            loginverifylabel["text"] = "Invalid username or password ! "
-#    else:
-#        loginverifylabel["text"] = "Invalid username or password ! "
-
-
-#def registerverify():
-#    if regusername.get() in users:    # if you enter a username that you used it will display an error message
-#        frame = Frame()
-#        frame.pack(pady=2)
-#        registerverifylabel["text"] = "This Username Is Taken"
-#    else:
-#        users[regusername.get()] = regpassword.get()    # else it will add your new username and password in "users" dictionary 
-#        beginning()
-
-
-#beginning()   # Starting program
-#mainloop()
