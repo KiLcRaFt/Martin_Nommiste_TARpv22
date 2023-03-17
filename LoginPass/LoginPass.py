@@ -1,6 +1,5 @@
 ﻿from tkinter import *  
 from webbrowser import *
-from time import sleep
 
 users = {"username":"password"}  
 
