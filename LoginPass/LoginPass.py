@@ -1,10 +1,27 @@
 ﻿from tkinter import *  
 from webbrowser import *
+import io
 
-users = {"username":"password"}  
+users = {} 
+
+def file():
+    with io.open("database.txt", "r", encoding="utf-8") as file:
+        for line in file:
+            k, v=line.strip().split("-")
+            users[k.strip()] = v.strip()
+        file.close()
+        return users
+
+def file_add(i):
+        users.update({regname.get():regpass2.get()})
+        file=io.open("database.txt", "a")
+        file.write(f"{i}\n")
+        file.close()
+        return users
 
 def startwin():
     global win
+    file()
     win=Tk()
     win.geometry("350x270")
     win.title("Login or Registreerimine")
@@ -52,7 +69,8 @@ def regverifying():
         if regname.get() in users:
             reglabel["text"] = "Try another"
         else:
-            users[regname.get()] = regpass2.get()
+            #users[regname.get()] = regpass2.get()
+            file_add(f"{regname.get()}-{regpass2.get()}")
             startwin()
     else:
         reglabel["text"] = "Passwords does not match" 
