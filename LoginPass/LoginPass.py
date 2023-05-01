@@ -19,21 +19,28 @@ def file_add(i):
         file.close()
         return users
 
-def startwin():
-    global win
-    file()
-    win=Tk()
-    win.geometry("350x270")
-    win.title("Login or Registreerimine")
-    lbl=Label(win,text="Welcome", bg="lightblue",fg="black",font="Arial 50", width=15)
-    btn1=Button(win, text="Login", font="Arial 22", bg="pink", fg="black", relief=RAISED, width=15, borderwidth=5, command=login)
-    btn2=Button(win, text="Registreerimine", font="Arial 22", bg="green", fg="black", relief=RAISED, width=15, borderwidth=5, command=reg)
-    btn3=Button(win, text="Exit", font="Arial 22", bg="red", fg="black", relief=RAISED, width=15, borderwidth=5, command=exit)
+win=Tk()
+win.geometry("600x300")
 
+def startwin():
+    global win, c
+    file()
+    win.title("Login or Registreerimine")
+    c = Canvas(win, bg = "white", height = "550",width = "250")
+    lbl=Label(c,text="Welcome", bg="lightblue",fg="black",font="Arial 50", width=15)
+    btn1=Button(c, text="Login", font="Arial 22", bg="pink", fg="black", relief=RAISED, width=15, borderwidth=5, command=login)
+    btn2=Button(c, text="Registreerimine", font="Arial 22", bg="green", fg="black", relief=RAISED, width=15, borderwidth=5, command=reg)
+    btn3=Button(c, text="Exit", font="Arial 22", bg="red", fg="black", relief=RAISED, width=15, borderwidth=5, command=exit)
+
+    c.grid()
     lbl.pack()
     btn1.pack(fill=BOTH, side=TOP)
     btn2.pack(fill=BOTH, side=TOP)
     btn3.pack(fill=BOTH, side=TOP)
+
+def startreg():
+    c1.grid_remove()
+    startwin()
 
 def reg():
     global regwin
@@ -41,28 +48,30 @@ def reg():
     global regpass
     global regpass2
     global reglabel
-    regwin=Tk()
-    regwin.title("Registreerimine")
-    regwin.geometry("600x250")
-    uname = Label(regwin ,text="Username : ", fg="red", font="Arial 24")
-    regname = Entry(regwin ,width=32)
-    pas = Label(regwin ,text="Password : ", fg="lightblue", font="Arial 24")
-    regpass = Entry(regwin ,width=32)
-    pas2 = Label(regwin ,text="Repeat password : ", fg="blue", font="Arial 24")
-    regpass2 = Entry(regwin ,width=32)
-    exitb = Button(regwin ,text="BACK", bg="black", fg="red", font="Arial 20", command=startwin)
-    regb = Button(regwin ,text="REGISTER", bg="black", fg="lightblue", font="Arial 20", command=regverifying)
-    reglabel = Label(regwin, fg="black", font="Arial 20")
+    global c1
+    c.grid_remove()
+    c1 = Canvas(win, bg = "white", height = "600",width = "600")
+    win.title("Registreerimine")
+    uname = Label(c1 ,text="Username : ", fg="red", font="Arial 24")
+    regname = Entry(c1 ,width=32)
+    pas = Label(c1 ,text="Password : ", fg="lightblue", font="Arial 24")
+    regpass = Entry(c1 ,width=32)
+    pas2 = Label(c1 ,text="Repeat password : ", fg="blue", font="Arial 24")
+    regpass2 = Entry(c1 ,width=32)
+    exitb = Button(c1 ,text="BACK", bg="black", fg="red", font="Arial 20", command=startreg)
+    regb = Button(c1 ,text="REGISTER", bg="black", fg="lightblue", font="Arial 20", command=regverifying)
+    reglabel = Label(c1, fg="black", font="Arial 20")
 
     uname.pack(fill=BOTH, side=TOP)
-    regname.pack()
+    regname.pack(fill=BOTH, side=TOP)
     pas.pack(fill=BOTH, side=TOP)
-    regpass.pack()
+    regpass.pack(fill=BOTH, side=TOP)
     pas2.pack(fill=BOTH, side=TOP)
-    regpass2.pack()
-    reglabel.pack()
+    regpass2.pack(fill=BOTH, side=TOP)
+    reglabel.pack(fill=BOTH, side=TOP)
     regb.pack(side=RIGHT)
     exitb.pack(side=LEFT)
+    c1.grid()
 
 def regverifying():
     if regpass.get() == regpass2.get():
@@ -71,37 +80,43 @@ def regverifying():
         else:
             #users[regname.get()] = regpass2.get()
             file_add(f"{regname.get()}-{regpass2.get()}")
-            startwin()
+            startreg()
     else:
         reglabel["text"] = "Passwords does not match" 
+
+def startlog():
+    c2.grid_remove()
+    startwin()
 
 def login():
         global loglabel
         global logname
         global logpass
         global logb
-        logwin=Tk()
-        logwin.title("Login")
-        logwin.geometry("600x250")
-        uname = Label(logwin ,text="Username : ", fg="red", font="Arial 24")
-        logname = Entry(logwin ,width=32)
-        pas = Label(logwin ,text="Password : ", fg="lightblue", font="Arial 24")
-        logpass = Entry(logwin ,show="*",  width=32)
+        global c2
+        c.grid_remove()
+        win.title("Login")
+        c2 = Canvas(win, bg = "white", height = "600",width = "600")
+        uname = Label(c2 ,text="Username : ", fg="red", font="Arial 24")
+        logname = Entry(c2 ,width=80)
+        pas = Label(c2 ,text="Password : ", fg="lightblue", font="Arial 24")
+        logpass = Entry(c2 ,show="*",  width=80)
         logpass.insert(0, "password")
         def clear_all(event):
             logpass.delete(0,END)
         logpass.bind("<Button-1>",clear_all)
-        exitb = Button(logwin ,text="BACK", bg="black", fg="red", font="Arial 20", command=startwin)
-        logb = Button(logwin ,text="Sign in", bg="black", fg="lightblue", font="Arial 20", command=logverifying)
-        loglabel = Label(logwin, fg="black", font="Arial 20")
+        exitb = Button(c2 ,text="BACK", bg="black", fg="red", font="Arial 20", command=startlog)
+        logb = Button(c2 ,text="Sign in", bg="black", fg="lightblue", font="Arial 20", command=logverifying)
+        loglabel = Label(c2, fg="black", font="Arial 20")
 
         uname.pack(fill=BOTH, side=TOP)
-        logname.pack()
+        logname.pack(fill=BOTH, side=TOP)
         pas.pack(fill=BOTH, side=TOP)
-        logpass.pack()
-        loglabel.pack()
+        logpass.pack(fill=BOTH, side=TOP)
+        loglabel.pack(fill=BOTH, side=TOP)
         logb.pack(side=RIGHT)
         exitb.pack(side=LEFT)
+        c2.grid()
 
 def logverifying():
     loglabel.pack(fill=BOTH)
