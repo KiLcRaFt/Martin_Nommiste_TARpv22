@@ -8,7 +8,7 @@ from time import sleep
 win=Tk()
 win.geometry("450x450")
 
-def startwin():
+def startwinKNB():
     global c
     win.iconbitmap("logo.ico")
     win.title("Rock-Paper-Scissors")

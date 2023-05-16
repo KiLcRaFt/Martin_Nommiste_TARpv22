@@ -1,6 +1,7 @@
 ﻿from tkinter import *  
 from webbrowser import *
 import io
+from KNB_tk_projeckt import *
 
 users = {} 
 
@@ -74,17 +75,13 @@ def reg():
     c1.grid()
 
 def regverifying():
-    rg = regpass.get()
     if regpass.get() == regpass2.get():
-        if len(rg) >= 6 and rg.isupper():
-            if regname.get() in users:
-                reglabel["text"] = "Try another"
-            else:
-                #users[regname.get()] = regpass2.get()
-                file_add(f"{regname.get()}-{regpass2.get()}")
-                startreg()
+        if regname.get() in users:
+            reglabel["text"] = "Try another"
         else:
-             reglabel["text"] = "Password need to be at least 6 sym and have uppercase"
+            #users[regname.get()] = regpass2.get()
+            file_add(f"{regname.get()}-{regpass2.get()}")
+            startreg()
     else:
         reglabel["text"] = "Passwords does not match" 
 
@@ -127,10 +124,11 @@ def logverifying():
     if logname.get() in users.keys():
         if logpass.get() == users[logname.get()]: 
             loglabel["text"] = "Login Successful ! "
+            startwinKNB()
         else:
             loglabel["text"] = "Invalid username or password ! "
     else:
         loglabel["text"] = "Invalid username or password ! "
 
-startwin()
-win.mainloop()
+#startwin()
+#win.mainloop()
