@@ -1,5 +1,5 @@
 ﻿from OmaMoodul import *
 from LoginPass import *
 
-startwin()
+startwinKNB()
 win.mainloop()

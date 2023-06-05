@@ -8,24 +8,33 @@ from time import sleep
 win=Tk()
 win.geometry("450x450")
 
+bg = "white"
+fg = "black"
+
 def startwinKNB():
-    global c
+    global c, menubar
     win.iconbitmap("logo.ico")
     win.title("Rock-Paper-Scissors")
-    c = Canvas(win, bg = "white", height = "450",width = "450")
-    lbl=Label(c,text="Rock/Papper/Scissors", bg="white",fg="black",font="Arial 20", width=20)
+    menubar = Menu(win)
+    filemenu = Menu(menubar, tearoff=0)
+    filemenu.add_command(label="White", command=white)
+    filemenu.add_command(label="Black", command=black)
+    filemenu.add_separator()
+    menubar.add_cascade(label="Theme", menu=filemenu)
+    c = Canvas(win, bg = bg, height = "450",width = "450")
+    lbl=Label(c,text="Rock/Papper/Scissors", bg=bg,fg=fg,font="Arial 20", width=20)
     btn1=Button(c, text="Start", fg="Black", font="Arial 20", relief=RAISED, width=15, borderwidth=5, command=p1)
-
+    
+    win.config(menu=menubar)
     c.grid()
     lbl.pack(fill=X, side=TOP)
     btn1.pack(fill=Y, side=TOP)
- 
 
 def p1():
     global cp1
     c.grid_remove()
-    cp1 = Canvas(win, bg = "white", height = "450",width = "450")
-    lbl=Label(cp1,text="P1 choise is:", bg="white",fg="black",font="Arial 20", width=20)
+    cp1 = Canvas(win, bg = bg, height = "450",width = "450")
+    lbl=Label(cp1,text="P1 choise is:", bg=bg,fg=fg,font="Arial 20", width=20)
     btnRock1=Button(cp1, text="Rock", fg="Black", font="Arial 10", relief=RAISED, width=15, borderwidth=5, command=rockp1)
     btnPaper1=Button(cp1, text="Paper", fg="Black", font="Arial 10", relief=RAISED, width=15, borderwidth=5, command=paperp1)
     btnScissors1=Button(cp1, text="Scissors", fg="Black", font="Arial 10", relief=RAISED, width=15, borderwidth=5, command=scissorsp1)
@@ -64,8 +73,8 @@ def scissorsp1():
 def p2():
     global cp2
     win.title("Rock-Paper-Scissors")
-    cp2 = Canvas(win, bg = "white", height = "600",width = "600")
-    lbl=Label(cp2,text="P2 choise is:", bg="white",fg="black",font="Arial 20", width=20)
+    cp2 = Canvas(win, bg = bg, height = "600",width = "600")
+    lbl=Label(cp2,text="P2 choise is:", bg=bg,fg=fg,font="Arial 20", width=20)
     btnRock2=Button(cp2, text="Rock", fg="Black", font="Arial 10", relief=RAISED, width=15, borderwidth=5, command=rockp2)
     btnPaper2=Button(cp2, text="Paper", fg="Black", font="Arial 10", relief=RAISED, width=15, borderwidth=5, command=paperp2)
     btnScissors2=Button(cp2, text="Scissors", fg="Black", font="Arial 10", relief=RAISED, width=15, borderwidth=5, command=scissorsp2)
@@ -138,24 +147,24 @@ def choise():
 
     if selection == "rock" and computer_chose == "rock":
         global cdraw
-        cdraw = Canvas(win, bg = "white", height = "600",width = "600")
-        lbl=Label(cdraw,text="Draw", bg="white",fg="black",font="Arial 20", width=20)
+        cdraw = Canvas(win, bg = bg, height = "600",width = "600")
+        lbl=Label(cdraw,text="Draw", bg=bg,fg=fg,font="Arial 20", width=20)
         btnn=Button(cdraw, text="Continue", fg="Black", font="Arial 20", relief=RAISED, width=15, borderwidth=5, command=p1draw)
    
         cdraw.grid()
         lbl.pack(fill=X, side=TOP)
         btnn.pack(fill=Y, side=TOP)
     elif selection == "paper" and computer_chose == "paper":
-        cdraw = Canvas(win, bg = "white", height = "600",width = "600")
-        lbl=Label(cdraw,text="Draw", bg="white",fg="black",font="Arial 20", width=20)
+        cdraw = Canvas(win, bg = bg, height = "600",width = "600")
+        lbl=Label(cdraw,text="Draw", bg=bg,fg=fg,font="Arial 20", width=20)
         btnn=Button(cdraw, text="Continue", fg="Black", font="Arial 20", relief=RAISED, width=15, borderwidth=5, command=p1draw)
    
         cdraw.grid()
         lbl.pack(fill=X, side=TOP)
         btnn.pack(fill=Y, side=TOP)
     elif selection == "scissors" and computer_chose == "scissors":
-        cdraw = Canvas(win, bg = "white", height = "600",width = "600")
-        lbl=Label(cdraw,text="Draw", bg="white",fg="black",font="Arial 20", width=20)
+        cdraw = Canvas(win, bg = bg, height = "600",width = "600")
+        lbl=Label(cdraw,text="Draw", bg=bg,fg=fg,font="Arial 20", width=20)
         btnn=Button(cdraw, text="Continue", fg="Black", font="Arial 20", relief=RAISED, width=15, borderwidth=5, command=p1draw)
    
         cdraw.grid()
@@ -163,8 +172,8 @@ def choise():
         btnn.pack(fill=Y, side=TOP)
     elif selection == "rock" and computer_chose == "scissors":
         p1n+=1
-        cdraw = Canvas(win, bg = "white", height = "600",width = "600")
-        lbl=Label(cdraw,text="P1 win", bg="white",fg="black",font="Arial 20", width=20)
+        cdraw = Canvas(win, bg = bg, height = "600",width = "600")
+        lbl=Label(cdraw,text="P1 win", bg=bg,fg=fg,font="Arial 20", width=20)
         btnn=Button(cdraw, text="Continue", fg="Black", font="Arial 20", relief=RAISED, width=15, borderwidth=5, command=p1draw)
    
         cdraw.grid()
@@ -172,8 +181,8 @@ def choise():
         btnn.pack(fill=Y, side=TOP)
     elif selection == "paper" and computer_chose == "rock":
         p1n+=1
-        cdraw = Canvas(win, bg = "white", height = "600",width = "600")
-        lbl=Label(cdraw,text="P1 win", bg="white",fg="black",font="Arial 20", width=20)
+        cdraw = Canvas(win, bg = bg, height = "600",width = "600")
+        lbl=Label(cdraw,text="P1 win", bg=bg,fg=fg,font="Arial 20", width=20)
         btnn=Button(cdraw, text="Continue", fg="Black", font="Arial 20", relief=RAISED, width=15, borderwidth=5, command=p1draw)
    
         cdraw.grid()
@@ -181,8 +190,8 @@ def choise():
         btnn.pack(fill=Y, side=TOP)
     elif selection == "scissors" and computer_chose == "paper":
         p1n+=1
-        cdraw = Canvas(win, bg = "white", height = "600",width = "600")
-        lbl=Label(cdraw,text="P1 win", bg="white",fg="black",font="Arial 20", width=20)
+        cdraw = Canvas(win, bg = bg, height = "600",width = "600")
+        lbl=Label(cdraw,text="P1 win", bg=bg,fg=fg,font="Arial 20", width=20)
         btnn=Button(cdraw, text="Continue", fg="Black", font="Arial 20", relief=RAISED, width=15, borderwidth=5, command=p1draw)
    
         cdraw.grid()
@@ -190,8 +199,8 @@ def choise():
         btnn.pack(fill=Y, side=TOP)
     elif selection == "scissors" and computer_chose == "rock":
         p2n+=1
-        cdraw = Canvas(win, bg = "white", height = "600",width = "600")
-        lbl=Label(cdraw,text="P2 win", bg="white",fg="black",font="Arial 20", width=20)
+        cdraw = Canvas(win, bg = bg, height = "600",width = "600")
+        lbl=Label(cdraw,text="P2 win", bg=bg,fg=fg,font="Arial 20", width=20)
         btnn=Button(cdraw, text="Continue", fg="Black", font="Arial 20", relief=RAISED, width=15, borderwidth=5, command=p1draw)
    
         cdraw.grid()
@@ -199,8 +208,8 @@ def choise():
         btnn.pack(fill=Y, side=TOP)
     elif selection == "rock" and computer_chose == "paper":
         p2n+=1
-        cdraw = Canvas(win, bg = "white", height = "600",width = "600")
-        lbl=Label(cdraw,text="P2 win", bg="white",fg="black",font="Arial 20", width=20)
+        cdraw = Canvas(win, bg = bg, height = "600",width = "600")
+        lbl=Label(cdraw,text="P2 win", bg=bg,fg=fg,font="Arial 20", width=20)
         btnn=Button(cdraw, text="Continue", fg="Black", font="Arial 20", relief=RAISED, width=15, borderwidth=5, command=p1draw)
    
         cdraw.grid()
@@ -208,13 +217,25 @@ def choise():
         btnn.pack(fill=Y, side=TOP)
     elif selection == "paper" and computer_chose == "scissors":
         p2n+=1
-        cdraw = Canvas(win, bg = "white", height = "600",width = "600")
-        lbl=Label(cdraw,text="P2 win", bg="white",fg="black",font="Arial 20", width=20)
+        cdraw = Canvas(win, bg = bg, height = "600",width = "600")
+        lbl=Label(cdraw,text="P2 win", bg=bg,fg=fg,font="Arial 20", width=20)
         btnn=Button(cdraw, text="Continue", fg="Black", font="Arial 20", relief=RAISED, width=15, borderwidth=5, command=p1draw)
    
         cdraw.grid()
         lbl.pack(fill=BOTH, side=TOP)
         btnn.pack(fill=Y, side=TOP)
 
+def white():
+    global bg, fg
+    bg = "white"
+    fg = "black"
+    c.grid_remove()
+    startwinKNB()
 
+def black():
+    global bg, fg
+    bg = "black"
+    fg = "white"
+    c.grid_remove()
+    startwinKNB()
 
