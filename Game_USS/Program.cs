@@ -4,14 +4,44 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks.Sources;
+using System.Xml;
 
 namespace Snake
 {
     class Program
     {
+        
         static void Main(string[] args)
         {
-            //Console.SetBufferSize(80, 25);
+            int score = 0;
+            int Speed = 100;
+            Console.SetWindowSize(90, 25);
+
+            Console.WriteLine("(White, Yellow, Blue)");
+            Console.WriteLine("Enter colour theme: ");
+            string colourname = Console.ReadLine();
+            if (colourname is "White")
+            {
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+            else if (colourname is "Yellow")
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+            }
+            else if (colourname is "Blue")
+            {
+                Console.ForegroundColor = ConsoleColor.Blue;
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+            Console.Clear();
+
+            Console.WriteLine("Enter your name: ");
+            string username = Console.ReadLine();
+            Console.Clear();
 
             Walls walls = new Walls(80, 25);
             walls.Draw();
@@ -27,6 +57,8 @@ namespace Snake
 
             while (true)
             {
+                Console.SetCursorPosition(Console.WindowWidth - 10, 1);
+                Console.Write("Score:"+score);
                 if (walls.IsHit(snake) || snake.IsHitTail())
                 {
                     break;
@@ -35,19 +67,21 @@ namespace Snake
                 {
                     food = foodCreator.CreateFood();
                     food.Draw();
+                    score++;
+                    Speed -= 5;
                 }
                 else
                 {
                     snake.Move();
                 }
-
-                Thread.Sleep(100);
+                Thread.Sleep(Speed);
                 if (Console.KeyAvailable)
                 {
                     ConsoleKeyInfo key = Console.ReadKey();
                     snake.HandleKey(key.Key);
                 }
             }
+            File.AppendAllText(@"C:\Users\M0RGAN\source\repos\Martin_Nommiste_TARpv22\Game_USS\result.txt", username+" "+score + Environment.NewLine);
             WriteGameOver();
             Console.ReadLine();
         }
@@ -60,7 +94,7 @@ namespace Snake
             Console.ForegroundColor = ConsoleColor.Red;
             Console.SetCursorPosition(xOffset, yOffset++);
             WriteText("============================", xOffset, yOffset++);
-            WriteText("Mäng on lõpetanud", xOffset + 1, yOffset++);
+            WriteText("     Mäng on lõpetanud", xOffset + 1, yOffset++);
             yOffset++;
             WriteText("============================", xOffset, yOffset++);
         }
