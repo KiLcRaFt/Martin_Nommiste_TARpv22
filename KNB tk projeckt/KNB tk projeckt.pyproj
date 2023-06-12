@@ -4,13 +4,14 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>8e303e6b-3f3c-45ec-a791-39d11ac8fe39</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>KNB_tk_projeckt.py</StartupFile>
+    <StartupFile>LoginPass.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>KNB tk projeckt</Name>
     <RootNamespace>KNB tk projeckt</RootNamespace>
+    <IsWindowsApplication>False</IsWindowsApplication>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>

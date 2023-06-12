@@ -1,5 +1,8 @@
-﻿from OmaMoodul import *
-from LoginPass import *
+﻿from LoginPass import *
+from tkinter import *  
 
-startwinKNB()
+win=Tk()
+win.geometry("600x300")
+
+start()
 win.mainloop()
