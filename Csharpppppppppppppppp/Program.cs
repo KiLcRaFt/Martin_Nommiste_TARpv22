@@ -5,11 +5,12 @@ using System.Collections.Generic;
 
 class Program
 {
+
     static void Main(string[] args)
     {
         // 1. Задано пять произвольных целых чисел (элементы массива). Определить, является ли их расположение в массиве упорядоченным (т.е. по возрастанию или по убыванию) или неупорядоченным.
 
-        //int[] num = new int[1, 2, 3, 4, 5];
+        //int[] num = new int[5] {5,4,3,2,1};
 
         //bool vozras = true;
         //bool ubivanie = true;
@@ -32,7 +33,7 @@ class Program
         //    }
         //}
 
-        //if (vozras or ubivanie)
+        //if (vozras || ubivanie)
         //{
         //    Console.WriteLine("Массив упорядочен");
         //}
@@ -45,38 +46,17 @@ class Program
 
         // 2. Задан массив действительных чисел из N элементов (используйте генератор случайных чисел). Определить количество элементов, значения которых находятся вне диапазона от -10 до +10.
 
-        //Random rand = new Random();
-        //int N = 30;
-
-        //double[] num = new double[N];
-
-        //for (int i = 0; i < N; i++)
+        //var N = 30;
+        //var a = new int[N];
+        //var rand = new Random();
+        //var count = 0;
+        //for (var i = 0; i < N; i++)
         //{
-        //    num[i] = rand.NextDouble() * 20 - 10;
+        //    a[i] = rand.Next(-15, 15);
+        //    if (a[i] < -10) count++;
+        //    else if (a[i] > 10) count++;
         //}
-
-        //int vneRange = 0;
-
-        //for (int i = 0; i < N; i++)
-        //{
-        //    if (num[i] < -10 || num[i] > 10)
-        //    {
-        //        vneRange++;
-        //    }
-        //}
-
-        //Console.WriteLine($"Vne diapazona {vneRange} chisel.");
-
-        var n = 30;
-        var a = new int[n];
-        var r = new Random();
-        var count = 0;
-        for (var i = 0; i < n; i++)
-        {
-            a[i] = r.Next(-20, 20);
-            if (a[i] > -10 && a[i] < 10) count++;
-        }
-        Console.WriteLine("Count {0}", count);
+        //Console.WriteLine("Vne diapazona " + count + " chisel");
 
         //---------------------------------------------------------------------------
 
@@ -88,53 +68,55 @@ class Program
         //Требуется составить списки избирателей, живущих по заданному адресу в алфавитном порядке.
         //Примечание: Правом участия в выборах обладают люди не моложе 18 лет.
 
-        //    class zhitel
+
+        //zhitel[] M = new zhitel[]
         //{
-        //    public string perenimi { get; set; }
-        //    public string name { get; set; }
-        //    public string otchestvo { get; set; }
-        //    public string ulica { get; set; }
-        //    public string dom { get; set; }
-        //    public DateTime data { get; set; }
-        //}
-        //    zhitel[] zhiteli = new zhitel[]
-        //    {
-        //        new zhitel { perenimi = "Chinikov", name = "Nikita", otchestvo = "Ivanov", ulica = "Sopruse tee", dom = "24", data = new DateTime(1990, 5, 12) },
-        //        new zhitel { perenimi = "Jones", name = "Ivan", otchestvo = "Viktorovich", ulica = "Sopruse tee", dom = "24", data = new DateTime(1985, 9, 20) },
-        //        new zhitel { perenimi = "Murat", name = "Migel", otchestvo = "Ronovich", ulica = "Sopruse tee", dom = "24", data = new DateTime(2000, 2, 8) },
-        //        new zhitel { perenimi = "Nikulina", name = "Nastja", otchestvo = "Porfirevich", ulica = "Sopruse tee", dom = "24", data = new DateTime(1978, 12, 15) },
-        //    };
+        //                    new zhitel { perenimi = "Chinikov", name = "Nikita", otchestvo = "Ivanov", ulica = "Sopruse tee", dom = "24", data = new DateTime(1990, 5, 12) },
+        //                    new zhitel { perenimi = "Jones", name = "Ivan", otchestvo = "Viktorovich", ulica = "Sopruse tee", dom = "24", data = new DateTime(2007, 9, 20) },
+        //                    new zhitel { perenimi = "Murat", name = "Migel", otchestvo = "Ronovich", ulica = "majaka tee", dom = "25", data = new DateTime(2000, 2, 8) },
+        //                    new zhitel { perenimi = "Nikulina", name = "Nastja", otchestvo = "Porfirevich", ulica = "Sopruse tee", dom = "24", data = new DateTime(1978, 12, 15) },
+        //};
 
-
-        //    List<zhitel> golos = new List<zhitel>();
-
-        //    foreach (zhitel i in zhiteli)
-        //    {
-        //        if (i.ulica == "Sopruse tee" && i.dom == "24" && notwoman(i.DateOfBirth))
+        //List<zhitel> golos = new List<zhitel>();
+            
+        //foreach (zhitel i in M)
+        //{
+        //        if (i.ulica == "Sopruse tee" && i.dom == "24" && nemaloi(i.data))
         //        {
         //            golos.Add(i);
         //        }
-        //    }
-
-        //    golos.Sort((x, y) => x.perenimi.CompareTo(y.perenimi));
-
-        //    Console.WriteLine("Golosocacshih na Sopruse tee 24");
-        //    foreach (Zhitel i in golos)
-        //    {
-        //        Console.WriteLine("{0}, {1} {2}", i.perenimi, i.name, i.otchestvo);
-        //    }
-
-        //    static bool notwoman(DateTime dateOfBirth)
-        //    {
-        //        int age = DateTime.Today.Year - dateOfBirth.Year;
-        //        if (dateOfBirth > DateTime.Today.AddYears(-age))
-        //        {
-        //            age--;
-        //        }
-
-        //        return age >= 18;
-        //    }
-
         //}
+
+        //golos.Sort((x, y) => x.perenimi.CompareTo(y.perenimi));
+
+        //Console.WriteLine("Голосование на Sopruse tee 24");
+        //Console.WriteLine("");
+        //foreach (zhitel i in golos)
+        //{
+        //    Console.WriteLine("Фамилия:{0}", i.perenimi);
+        //    Console.WriteLine("Имя:{0}", i.name);
+        //    Console.WriteLine("Отчество:{0}", i.otchestvo);
+        //    Console.WriteLine("");
+        //}
+
+        //static bool nemaloi(DateTime dateOfBirth)
+        //{
+        //    int age = DateTime.Today.Year - dateOfBirth.Year;
+        //    if (dateOfBirth > DateTime.Today.AddYears(-age))
+        //    {
+        //        age--;
+        //    }
+
+        //    return age > 18;
+        //}    
     }
+    //class zhitel
+    //{
+    //    public string perenimi { get; set; }
+    //    public string name { get; set; }
+    //    public string otchestvo { get; set; }
+    //    public string ulica { get; set; }
+    //    public string dom { get; set; }
+    //    public DateTime data { get; set; }
+    //}
 }
