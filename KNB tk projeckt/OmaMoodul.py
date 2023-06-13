@@ -1,9 +1,11 @@
-﻿from random import *
+﻿from email.mime import image
+from random import *
+import tkinter
 from tkinter import *
-from tkinter import ttk
 from math import *
 from time import sleep
 from LoginPass import *
+from PIL import Image, ImageTk
 
 #win=Tk()
 #win.geometry("450x450")
@@ -12,7 +14,9 @@ bg = "white"
 fg = "black"
 
 def startwinKNB():
-    global c, menubar, win
+    global c, menubar, win, rockimage
+    rock = PhotoImage(file = r"C:\Users\opilane\source\repos\KiLcRaFt\Martin_Nommiste_TARpv22\KNB tk projeckt\rock.png")
+    rockimage = rock.subsample(1, 2)
     #win.iconbitmap("logo.ico")
     win=Tk()
     win.geometry("600x300")
@@ -40,8 +44,8 @@ def p1():
     c.grid_remove()
     choisee = 1
     cp1 = Canvas(win, bg = bg, height = "600",width = "300")
-    lbl=Label(cp1,text="Inimene 1 valik on:", bg=bg,fg=fg,font="Arial 35", width=20)
-    btnRock1=Button(cp1, text="Kivi", fg="Black", font="Arial 22", relief=RAISED, width=15, borderwidth=5, command=rockp1)
+    lbl=Label(cp1,text="1 inimese valik on:", bg=bg,fg=fg,font="Arial 35", width=20)
+    btnRock1=Button(cp1, image=rockimage, fg="Black", relief=RAISED, width=15, borderwidth=5, command=rockp1)
     btnPaper1=Button(cp1, text="Paber", fg="Black", font="Arial 22", relief=RAISED, width=15, borderwidth=5, command=paperp1)
     btnScissors1=Button(cp1, text="Käärid", fg="Black", font="Arial 22", relief=RAISED, width=15, borderwidth=5, command=scissorsp1)
     ex=Button(cp1, text="Väljuda", fg="red", font="Arial 10", relief=RAISED, width=6, borderwidth=3, command=exit)
@@ -265,7 +269,7 @@ def choise():
     elif selection == "rock" and computer_chose == "scissors":
         p1n+=1
         cdraw = Canvas(win, bg = bg, height = "600",width = "300")
-        lbl=Label(cdraw,text="Inimene 1 võita", bg=bg,fg=fg,font="Arial 35", width=20)
+        lbl=Label(cdraw,text="1 inimene võita", bg=bg,fg=fg,font="Arial 35", width=20)
         btnn=Button(cdraw, text="Jätka", fg="Black", font="Arial 22", relief=RAISED, width=15, borderwidth=5, command=p1draw)
         ex=Button(cdraw, text="Väljuda", fg="red", font="Arial 10", relief=RAISED, width=6, borderwidth=3, command=exit)
 
@@ -276,7 +280,7 @@ def choise():
     elif selection == "paper" and computer_chose == "rock":
         p1n+=1
         cdraw = Canvas(win, bg = bg, height = "600",width = "300")
-        lbl=Label(cdraw,text="Inimene 1 võita", bg=bg,fg=fg,font="Arial 35", width=20)
+        lbl=Label(cdraw,text="1 inimene võita", bg=bg,fg=fg,font="Arial 35", width=20)
         btnn=Button(cdraw, text="Jätka", fg="Black", font="Arial 22", relief=RAISED, width=15, borderwidth=5, command=p1draw)
         ex=Button(cdraw, text="Väljuda", fg="red", font="Arial 10", relief=RAISED, width=6, borderwidth=3, command=exit)
 
@@ -287,7 +291,7 @@ def choise():
     elif selection == "scissors" and computer_chose == "paper":
         p1n+=1
         cdraw = Canvas(win, bg = bg, height = "600",width = "300")
-        lbl=Label(cdraw,text="Inimene 1 võita", bg=bg,fg=fg,font="Arial 35", width=20)
+        lbl=Label(cdraw,text="1 inimene võita", bg=bg,fg=fg,font="Arial 35", width=20)
         btnn=Button(cdraw, text="Jätka", fg="Black", font="Arial 22", relief=RAISED, width=15, borderwidth=5, command=p1draw)
         ex=Button(cdraw, text="Väljuda", fg="red", font="Arial 10", relief=RAISED, width=6, borderwidth=3, command=exit)
 
@@ -298,7 +302,7 @@ def choise():
     elif selection == "scissors" and computer_chose == "rock":
         p2n+=1
         cdraw = Canvas(win, bg = bg, height = "600",width = "300")
-        lbl=Label(cdraw,text="Inimene 2 võita", bg=bg,fg=fg,font="Arial 35", width=20)
+        lbl=Label(cdraw,text="2 inimese võita", bg=bg,fg=fg,font="Arial 35", width=20)
         btnn=Button(cdraw, text="Jätka", fg="Black", font="Arial 22", relief=RAISED, width=15, borderwidth=5, command=p1draw)
         ex=Button(cdraw, text="Väljuda", fg="red", font="Arial 10", relief=RAISED, width=6, borderwidth=3, command=exit)
 
@@ -309,7 +313,7 @@ def choise():
     elif selection == "rock" and computer_chose == "paper":
         p2n+=1
         cdraw = Canvas(win, bg = bg, height = "600",width = "300")
-        lbl=Label(cdraw,text="Inimene 2 võita", bg=bg,fg=fg,font="Arial 35", width=20)
+        lbl=Label(cdraw,text="2 inimene võita", bg=bg,fg=fg,font="Arial 35", width=20)
         btnn=Button(cdraw, text="Jätka", fg="Black", font="Arial 22", relief=RAISED, width=15, borderwidth=5, command=p1draw)
         ex=Button(cdraw, text="Väljuda", fg="red", font="Arial 10", relief=RAISED, width=6, borderwidth=3, command=exit)
 
@@ -320,7 +324,7 @@ def choise():
     elif selection == "paper" and computer_chose == "scissors":
         p2n+=1
         cdraw = Canvas(win, bg = bg, height = "600",width = "300")
-        lbl=Label(cdraw,text="Inimene 2 võita", bg=bg,fg=fg,font="Arial 35", width=20)
+        lbl=Label(cdraw,text="2 inimene võita", bg=bg,fg=fg,font="Arial 35", width=20)
         btnn=Button(cdraw, text="Jätka", fg="Black", font="Arial 22", relief=RAISED, width=15, borderwidth=5, command=p1draw)
         ex=Button(cdraw, text="Väljuda", fg="red", font="Arial 10", relief=RAISED, width=6, borderwidth=3, command=exit)
 

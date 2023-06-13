@@ -5,41 +5,41 @@ using System.Collections.Generic;
 
 class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
         // 1. Задано пять произвольных целых чисел (элементы массива). Определить, является ли их расположение в массиве упорядоченным (т.е. по возрастанию или по убыванию) или неупорядоченным.
 
-        int[] num = new int[1, 2, 3, 4, 5];
+        //int[] num = new int[1, 2, 3, 4, 5];
 
-        bool vozras = true;
-        bool ubivanie = true;
+        //bool vozras = true;
+        //bool ubivanie = true;
 
-        for (int i = 1; i < num.Length; i++)
-        {
-            if (num[i] < num[i - 1])
-            {
-                vozras = false;
-                break;
-            }
-        }
+        //for (int i = 1; i < num.Length; i++)
+        //{
+        //    if (num[i] < num[i - 1])
+        //    {
+        //        vozras = false;
+        //        break;
+        //    }
+        //}
 
-        for (int i = 1; i < num.Length; i++)
-        {
-            if (num[i] > num[i - 1])
-            {
-                ubivanie = false;
-                break;
-            }
-        }
+        //for (int i = 1; i < num.Length; i++)
+        //{
+        //    if (num[i] > num[i - 1])
+        //    {
+        //        ubivanie = false;
+        //        break;
+        //    }
+        //}
 
-        if (vozras or ubivanie)
-        {
-            Console.WriteLine("Массив упорядочен");
-        }
-        else
-        {
-            Console.WriteLine("Массив не упорядочен");
-        }
+        //if (vozras or ubivanie)
+        //{
+        //    Console.WriteLine("Массив упорядочен");
+        //}
+        //else
+        //{
+        //    Console.WriteLine("Массив не упорядочен");
+        //}
 
         //--------------------------------------------------------------------------
 
@@ -65,7 +65,18 @@ class Program
         //    }
         //}
 
-        //Console.WriteLine($"Вне диапозона {vneRange} чисел.");
+        //Console.WriteLine($"Vne diapazona {vneRange} chisel.");
+
+        var n = 30;
+        var a = new int[n];
+        var r = new Random();
+        var count = 0;
+        for (var i = 0; i < n; i++)
+        {
+            a[i] = r.Next(-20, 20);
+            if (a[i] > -10 && a[i] < 10) count++;
+        }
+        Console.WriteLine("Count {0}", count);
 
         //---------------------------------------------------------------------------
 
@@ -126,3 +137,4 @@ class Program
 
         //}
     }
+}
