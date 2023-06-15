@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 // 6. Variant
 
-class Program
-{
+//class Program
+//{
 
-    static void Main(string[] args)
-    {
+    //static void Main(string[] args)
+    //{
         // 1. Задано пять произвольных целых чисел (элементы массива). Определить, является ли их расположение в массиве упорядоченным (т.е. по возрастанию или по убыванию) или неупорядоченным.
 
         //int[] num = new int[5] {5,4,3,2,1};
@@ -109,7 +109,7 @@ class Program
 
         //    return age > 18;
         //}    
-    }
+    //}
     //class zhitel
     //{
     //    public string perenimi { get; set; }
@@ -119,4 +119,4 @@ class Program
     //    public string dom { get; set; }
     //    public DateTime data { get; set; }
     //}
-}
+//}
